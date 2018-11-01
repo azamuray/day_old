@@ -1,1 +1,60 @@
-<h1>Готово</h1>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="{% static 'parent/go.js' %}"></script>
+</head>
+
+<body>
+
+	<div id="myDiagramDiv" style="width:max-width; height:450px;"></div>
+
+	<script>
+		var $ = go.GraphObject.make;
+		var myDiagram =
+		  $(go.Diagram, "myDiagramDiv",
+		    {
+		      "undoManager.isEnabled": true, // enable Ctrl-Z to undo and Ctrl-Y to redo
+		      layout: $(go.TreeLayout, // specify a Diagram.layout that arranges trees
+		                { angle: 90, layerSpacing: 35 })
+		    });
+
+		// the template we defined earlier
+		myDiagram.nodeTemplate =
+		  $(go.Node, "Horizontal",
+		    { background: "green" },
+		    $(go.TextBlock, "Default Text",
+		      { margin: 12, stroke: "white", font: "bold 16px sans-serif" },
+		      new go.Binding("text", "name"))
+		  );
+
+		// define a Link template that routes orthogonally, with no arrowhead
+		myDiagram.linkTemplate =
+		  $(go.Link,
+		    { routing: go.Link.Orthogonal, corner: 5 },
+		    $(go.Shape, { strokeWidth: 3, stroke: "#555" })); // the link shape
+
+		var model = $(go.TreeModel);
+		model.nodeDataArray =
+		[
+		  { key: "9",                name: "Мусост" },
+
+		  { key: "91", parent: "9",  name: "Инал" },
+
+		  { key: "92", parent: "9",  name: "Мурдал" },
+		  { key: "10", parent: "92", name: "Алауди" },
+		  { key: "20", parent: "10", name: "Мохьмадгири" },
+		  { key: "30", parent: "20", name: "Макшерип" },
+		  { key: "40", parent: "20", name: "Мухтар" },
+		  { key: "50", parent: "20", name: "Аслан" },
+		  { key: "60", parent: "20", name: "Муслим" },
+		  { key: "70", parent: "20", name: "Асланбек" },
+		  { key: "80", parent: "20", name: "Муса" },
+		  { key: "90", parent: "20", name: "Мохьмад" },
+		];
+		myDiagram.model = model;
+	</script>
+
+</body>
+</html>
