@@ -8,7 +8,7 @@
 
 <body>
 
-	<div id="myDiagramDiv" style="width:max-width; height:450px;"></div>
+	<div id="myDiagramDiv" style="width:max-width; height:1000px;"></div>
 
 	<script>
 		var $ = go.GraphObject.make;
@@ -38,20 +38,45 @@
 		var model = $(go.TreeModel);
 		model.nodeDataArray =
 		[
-		  { key: "9",                name: "Мусост" },
-
-		  { key: "91", parent: "9",  name: "Инал" },
-
-		  { key: "92", parent: "9",  name: "Мурдал" },
-		  { key: "10", parent: "92", name: "Алауди" },
-		  { key: "20", parent: "10", name: "Мохьмадгири" },
-		  { key: "30", parent: "20", name: "Макшерип" },
-		  { key: "40", parent: "20", name: "Мухтар" },
-		  { key: "50", parent: "20", name: "Аслан" },
-		  { key: "60", parent: "20", name: "Муслим" },
-		  { key: "70", parent: "20", name: "Асланбек" },
-		  { key: "80", parent: "20", name: "Муса" },
-		  { key: "90", parent: "20", name: "Мохьмад" },
+		  { key: "00000001", parent: "000000001", name: "Албек" },
+		  { key: "0000001", parent: "00000001", name: "Гулмоут" },
+		  { key: "000001", parent: "0000001", name: "Гулмоут2" },
+		  { key: "00001", parent: "000001", name: "Бугуч" },
+		  { key: "0001", parent: "00001", name: "Чуопа" },
+		  { key: "001", parent: "0001", name: "К1езалг" },
+		  { key: "01", parent: "001", name: "Алхазур" },
+		  { key: "1",  parent: "01", name: "Мусост" },
+		  { key: "2", parent: "01", name: "Эстмар" },
+		  { key: "11", parent: "1",  name: "Инал" },
+		  { key: "111", parent: "11",  name: "Юсал" },
+		  { key: "1111", parent: "111",  name: "Ахмед" },
+		  { key: "11111", parent: "1111",  name: "Ризван" },
+		  { key: "1112", parent: "111",  name: "Ахдан" },
+		  { key: "1113", parent: "111",  name: "Хьамид" },
+		  { key: "112", parent: "11",  name: "Гилани" },
+		  { key: "1121", parent: "112",  name: "Эла" },
+		  { key: "1122", parent: "112",  name: "Хасан" },
+		  { key: "1123", parent: "112",  name: "Хусейн" },
+		  { key: "1124", parent: "112",  name: "Ахьмад" },
+		  { key: "12", parent: "1",  name: "Мурдал" },
+		  { key: "13", parent: "1",  name: "Бурсиг" },
+		  { key: "14", parent: "1",  name: "Тима" },
+		  { key: "141", parent: "14",  name: "Бауди" },
+		  { key: "142", parent: "14",  name: "Мохьмад" },
+		  { key: "15", parent: "12",  name: "Талт" },
+		  { key: "16", parent: "12", name: "Абдул-К" },
+		  { key: "151", parent: "15", name: "Тухан" },
+		  { key: "152", parent: "15", name: "Мохьмад" },
+		  { key: "121", parent: "12", name: "Алауди" },
+		  { key: "161", parent: "16", name: "Абаз" },
+		  { key: "1211", parent: "121", name: "Мохьмадгири" },
+		  { key: "12112", parent: "1211", name: "Макшерип" },
+		  { key: "12113", parent: "1211", name: "Мухтар" },
+		  { key: "12114", parent: "1211", name: "Аслан" },
+		  { key: "12115", parent: "1211", name: "Муслим" },
+		  { key: "12116", parent: "1211", name: "Асланбек" },
+		  { key: "12117", parent: "1211", name: "Муса" },
+		  { key: "12118", parent: "1211", name: "Мохьмад" },
 		];
 		myDiagram.model = model;
 	</script>
