@@ -38,8 +38,10 @@
 		var model = $(go.TreeModel);
 		model.nodeDataArray =
 		[
-		  { key: "11",       			 name: "1. Таркхо" },
-		  { key: "21",   parent: "11",   name: "2. Шовхал" },
+		{% for parent in latest_parent_list %}
+		  { key: {{ parent.id }},       			 name: "1. {{ parent.parent_name }}" },
+		{% endfor %}
+		  { key: "21",   parent: "1",   name: "2. Шовхал" },
 		  { key: "31",   parent: "21",   name: "3. Акхмар" },
 		  { key: "41",   parent: "31",   name: "4. Албек" },
 		  { key: "51",   parent: "41",   name: "5. Гулмоут" },
