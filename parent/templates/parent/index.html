@@ -54,7 +54,7 @@
 		  { key: "123",  parent: "111",  name: "12. Тима" },
 		  { key: "122",  parent: "111",  name: "12. Бурсиг" },
 		  { key: "124",  parent: "111",  name: "12. Мурдал" },
-		  { key: "131",  parent: "121",  name: "13. Юсал" },
+		  { key: "131",  parent: "121",  name: "13. Юса1" },
 		  { key: "132",  parent: "121",  name: "13. Гилани" },
 		  { key: "133",  parent: "123",  name: "13. Бауди" },
 		  { key: "134",  parent: "123",  name: "13. Мохьмад" },
@@ -103,12 +103,6 @@
 		];
 		myDiagram.model = model;
 	</script>
-
-    <ul>
-    {% for parent in latest_parent_list %}
-        <li><a href="/parent/{{ parent.id }}/">{{ parent.parent_name }}</a></li>
-    {% endfor %}
-    </ul>
 
 </body>
 </html>
