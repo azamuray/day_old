@@ -17,7 +17,7 @@
 		    {
 		      "undoManager.isEnabled": true, // enable Ctrl-Z to undo and Ctrl-Y to redo
 		      layout: $(go.TreeLayout, // specify a Diagram.layout that arranges trees
-		                { angle: 90, layerSpacing: 35 })
+		                { angle: 270, layerSpacing: 35 })
 		    });
 
 		// the template we defined earlier
@@ -38,10 +38,16 @@
 		var model = $(go.TreeModel);
 		model.nodeDataArray =
 		[
-/*		323 - Из третего поколения, второго отца, третий сын*/
-		{% for parent in parent_list %}
-			{ key: "{{ parent.id }}", parent: "{{ parent.child_id }}", name: "{{ parent.parent_name }}" },
-		{% endfor %}
+		/* Если пользователь авторизован, то он увидит id-предков */
+		{% if request.user.is_authenticated %}
+			{% for parent in parent_list %}
+				{ key: "{{ parent.id }}", parent: "{{ parent.child_id }}", name: "{{ parent.id }}. {{ parent.parent_name }}" },
+			{% endfor %}
+		{% else %}
+			{% for parent in parent_list %}
+				{ key: "{{ parent.id }}", parent: "{{ parent.child_id }}", name: "{{ parent.parent_name }}" },
+			{% endfor %}
+		{% endif %}
 		];
 		myDiagram.model = model;
 	</script>
